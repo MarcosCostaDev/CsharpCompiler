@@ -10,13 +10,25 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Include="..\..\files\add.json" Link="Files\add.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="..\..\files\combination.json" Link="Files\combination.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\..\files\fib.json" Link="Files\fib.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="..\..\files\function.json" Link="Files\function.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="..\..\files\helloworld.json" Link="Files\helloworld.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\files\if.json" Link="Files\if.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\files\let.json" Link="Files\let.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\..\files\sum.json" Link="Files\sum.json">
@@ -46,13 +58,25 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="..\..\files\add.rinha" Link="Files\add.rinha">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="..\..\files\combination.rinha" Link="Files\combination.rinha">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="..\..\files\fib.rinha" Link="Files\fib.rinha">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="..\..\files\function.rinha" Link="Files\function.rinha">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="..\..\files\helloworld.rinha" Link="Files\helloworld.rinha">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\files\if.rinha" Link="Files\if.rinha">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\files\let.rinha" Link="Files\let.rinha">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="..\..\files\sum.rinha" Link="Files\sum.rinha">

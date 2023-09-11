@@ -10,18 +10,16 @@ public sealed class ConditionExpression : Expression
     {
         Condition.Parent = this;
 
-        if (Condition.Run() is ValueExpression<bool> conditionResult)
+        if (Condition is ValueExpression<bool> actualValue && actualValue.Value ||
+           Condition.Run() is ValueExpression<bool> conditionResult && conditionResult.Value)
         {
-            if (conditionResult.Value)
-            {
-                Then.Parent = this;
-                return Then.Run();
-            }
-            else if (Otherwise != null)
-            {
-                Otherwise.Parent = this;
-                return Otherwise.Run();
-            }
+            Then.Parent = this;
+            return Then.Run();
+        }
+        else if (Otherwise != null)
+        {
+            Otherwise.Parent = this;
+            return Otherwise.Run();
         }
         throw new ArgumentException($"Error on {nameof(ConditionExpression)} - {Location.GetLog()}");
     }

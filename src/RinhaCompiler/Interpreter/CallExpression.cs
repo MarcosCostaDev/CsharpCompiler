@@ -15,14 +15,15 @@ public sealed class CallExpression : Expression
             {
                 for (int i = 0; i < functionExpression.Parameters.Length; i++)
                 {
-                    if(Arguments.ElementAt(i) is ValueExpression value)
+                    var arg = Arguments.ElementAt(i);
+                    arg.Parent = this;
+
+                    if (Arguments.ElementAt(i) is ValueExpression value)
                     {
-                        value.Parent = this;
                         functionExpression.Parameters[i].Value = value;
                     }
                     else if(Arguments.ElementAt(i) is BinaryExpression binaryValue)
                     {
-                        binaryValue.Parent = this;
                         functionExpression.Parameters[i].Value = binaryValue.Run() as ValueExpression;
                     }
                    

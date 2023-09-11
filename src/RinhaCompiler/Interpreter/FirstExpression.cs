@@ -6,6 +6,7 @@ public sealed class FirstExpression : ValueExpression<Expression>
     {
         if (Value is TupleExpression tupleExpression)
         {
+            tupleExpression.Parent = this;
             return tupleExpression.First.Run();
         }
 

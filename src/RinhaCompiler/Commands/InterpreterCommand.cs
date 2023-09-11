@@ -23,7 +23,6 @@ internal sealed class InterpreterCommand : AbstractCommand
 
         compiledFile.Run();
 
-        Console.WriteLine(JsonSerializer.Serialize(compiledFile, JsonExtensions.GetJsonDeserializerOptions()));
     }
 
     private async Task<CompiledFile?> GetCompiledFile(CancellationToken cancellationToken)

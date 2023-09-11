@@ -17,6 +17,8 @@ public sealed class BinaryExpression : Expression
 
     public override object Run()
     {
+        LeftHandSide.Parent = this;
+        RightHandSide.Parent = this;
         var leftSide = RunUntil.Find<ValueExpression>(LeftHandSide);
         var rightSide = RunUntil.Find<ValueExpression>(RightHandSide);
 

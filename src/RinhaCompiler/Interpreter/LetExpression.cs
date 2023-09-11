@@ -11,6 +11,7 @@ public sealed class LetExpression : Expression
     {
         CompiledFile.GlobalVariables.TryAdd(Name.Text, Value);
 
-        return Next?.Run();
+        Next.Parent = this;
+        return Next.Run();
     }
 }

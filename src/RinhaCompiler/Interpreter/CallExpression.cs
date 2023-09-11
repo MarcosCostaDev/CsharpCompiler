@@ -8,15 +8,26 @@ public sealed class CallExpression : Expression
 
     public override object Run()
     {
+        Callee.Parent = this;
         if (Callee is VarExpression varExpression)
         {
-            if (CompiledFile.GlobalVariables[varExpression.Text] is FunctionExpression functionExpression)
+            if (varExpression.GetValue() is FunctionExpression functionExpression)
             {
-                for (int i = 0; i < functionExpression.Parameters.Count(); i++)
+                for (int i = 0; i < functionExpression.Parameters.Length; i++)
                 {
-                    functionExpression.Parameters[i].Value = Arguments.ElementAt(i) as ValueExpression;
+                    if(Arguments.ElementAt(i) is ValueExpression value)
+                    {
+                        value.Parent = this;
+                        functionExpression.Parameters[i].Value = value;
+                    }
+                    else if(Arguments.ElementAt(i) is BinaryExpression binaryValue)
+                    {
+                        binaryValue.Parent = this;
+                        functionExpression.Parameters[i].Value = binaryValue.Run() as ValueExpression;
+                    }
+                   
                 }
-               
+                functionExpression.Parent = this;
                 return functionExpression.Run();
             }
         }

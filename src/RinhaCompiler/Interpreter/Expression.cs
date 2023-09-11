@@ -2,6 +2,25 @@
 
 namespace RinhaCompiler.Interpreter;
 
+[JsonConverter(typeof(JsonStringEnumConverter))]
+public enum Term
+{
+    Int,
+    Str,
+    Call,
+    Binary,
+    Function,
+    Let,
+    If,
+    Print,
+    First,
+    Second,
+    Bool,
+    Tuple,
+    Var
+}
+
+
 [JsonPolymorphic(TypeDiscriminatorPropertyName = "kind")]
 [JsonDerivedType(typeof(VarExpression), typeDiscriminator: nameof(Term.Var))]
 [JsonDerivedType(typeof(FunctionExpression), typeDiscriminator: nameof(Term.Function))]
@@ -18,5 +37,6 @@ namespace RinhaCompiler.Interpreter;
 [JsonDerivedType(typeof(PrintExpression), typeDiscriminator: nameof(Term.Print))]
 public abstract class Expression : FileLocator, ICommandExecute
 {
+    public Expression Parent { get; set; }
     public abstract object Run();
 }

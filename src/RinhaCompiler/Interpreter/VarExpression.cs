@@ -6,8 +6,17 @@ public sealed class VarExpression : Expression
 
     public override object Run()
     {
-        return CompiledFile.GlobalVariables[Text];
-        //return Text;
+       return GetValue();
+    }
+
+    public Expression GetValue()
+    {
+        return RunUntil.FindVariableValue(this, Text);
+    }
+
+    public Expression SetValue(Expression value)
+    {
+        return RunUntil.FindAndUpdateVariableValue(this, Text, value);
     }
 
 }

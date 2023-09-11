@@ -4,6 +4,7 @@ public sealed class PrintExpression : ValueExpression<Expression>
 {
     public override object Run()
     {
+        Value.Parent = this;
         var runResult = Value.Run();
         if (runResult is bool boolValue)
         {
@@ -25,7 +26,7 @@ public sealed class PrintExpression : ValueExpression<Expression>
                 Console.WriteLine($"({tupleExpression.First.Run()}, {tupleExpression.Second.Run()})");
                 return null!;
             }
-
+            expressionValue.Parent = this;
             Console.WriteLine(expressionValue.Run());
         }
         return null!;

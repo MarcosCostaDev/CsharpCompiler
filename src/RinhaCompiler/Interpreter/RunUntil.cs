@@ -7,6 +7,6 @@ public class RunUntil
         if (expression is TExpression tExpression) return tExpression;
         var expResult = expression.Run();
         if (expResult is Expression exp) return Find<TExpression>(exp);
-        throw new ArgumentException($"Error on processing {expression.Location.GetLog()}");
+        throw new ArgumentException($"Error on {nameof(RunUntil)}.{nameof(Find)} - {expression.Location.GetLog()}");
     }
 }

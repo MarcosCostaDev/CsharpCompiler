@@ -19,7 +19,7 @@ public sealed class PrintExpression : ValueExpression<Expression>
         }
         else if (runResult is Expression expressionValue)
         {
-            if (expressionValue is PrintExpression) throw new ArgumentException($"Error on {Location.GetLog()}");
+            if (expressionValue is PrintExpression) throw new ArgumentException($"Error on {nameof(PrintExpression)}.{nameof(Run)} -  {Location.GetLog()}");
             if (expressionValue is TupleExpression tupleExpression)
             {
                 Console.WriteLine($"({tupleExpression.First.Run()}, {tupleExpression.Second.Run()})");

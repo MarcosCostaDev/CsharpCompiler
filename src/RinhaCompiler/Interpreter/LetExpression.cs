@@ -1,4 +1,6 @@
-﻿namespace RinhaCompiler.Interpreter;
+﻿using System.Linq.Expressions;
+
+namespace RinhaCompiler.Interpreter;
 
 public sealed class LetExpression : Expression
 {
@@ -7,8 +9,8 @@ public sealed class LetExpression : Expression
     public Expression Value { get; set; }
     public override object Run()
     {
-        Next?.Run();
+        CompiledFile.GlobalVariables.TryAdd(Name.Text, Value);
 
-        return Value.Run();
+        return Next?.Run();
     }
 }

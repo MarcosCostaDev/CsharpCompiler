@@ -17,6 +17,6 @@ public sealed class ConditionExpression : Expression
             return Otherwise?.Run();
         }
 
-        throw new ArgumentException($"Error on {Condition.Location.GetLog()}");
+        throw new ArgumentException($"Error on {nameof(ConditionExpression)} - {Location.GetLog()}");
     }
 }

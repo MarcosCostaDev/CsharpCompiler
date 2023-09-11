@@ -6,7 +6,8 @@ public sealed class VarExpression : Expression
 
     public override object Run()
     {
-        return Text;
+        return CompiledFile.GlobalVariables[Text];
+        //return Text;
     }
 
 }

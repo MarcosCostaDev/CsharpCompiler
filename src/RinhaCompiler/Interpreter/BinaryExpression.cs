@@ -49,7 +49,7 @@ public sealed class BinaryExpression : Expression
             case BinaryOperator.Or:
                 return OrOperation(leftSide, rightSide);
             default:
-                throw new ArgumentException($"Error on {leftSide.Location.GetLog()}");
+                throw new ArgumentException($"Error on {nameof(BinaryExpression)}.{nameof(Run)} - {leftSide.Location.GetLog()}");
         }
 
     }
@@ -78,7 +78,7 @@ public sealed class BinaryExpression : Expression
                 return new ValueExpression<string> { Value = leftSideStrValue.Value + rightSideStrValue.Value, Location = leftSide.Location };
             }
         }
-        throw new ArgumentException($"Error on {leftSide.Location.GetLog()}");
+        throw new ArgumentException($"Error on {nameof(BinaryExpression)}.{nameof(AddOperation)} - {leftSide.Location.GetLog()}");
     }
 
     private ValueExpression<int> SubOperation(ValueExpression leftSide, ValueExpression rightSide)
@@ -90,7 +90,7 @@ public sealed class BinaryExpression : Expression
                 return new ValueExpression<int> { Value = leftSideIntValue.Value - rightSideIntValue.Value, Location = leftSide.Location };
             }
         }
-        throw new ArgumentException($"Error on {leftSide.Location.GetLog()}");
+        throw new ArgumentException($"Error on {nameof(BinaryExpression)}.{nameof(SubOperation)} - {leftSide.Location.GetLog()}");
     }
 
     private ValueExpression<int> MultiOperation(ValueExpression leftSide, ValueExpression rightSide)
@@ -102,7 +102,7 @@ public sealed class BinaryExpression : Expression
                 return new ValueExpression<int> { Value = leftSideIntValue.Value * rightSideIntValue.Value, Location = leftSide.Location };
             }
         }
-        throw new ArgumentException($"Error on {leftSide.Location.GetLog()}");
+        throw new ArgumentException($"Error on {nameof(BinaryExpression)}.{nameof(MultiOperation)} {leftSide.Location.GetLog()}");
     }
 
     private ValueExpression<int> DivOperation(ValueExpression leftSide, ValueExpression rightSide)
@@ -114,7 +114,7 @@ public sealed class BinaryExpression : Expression
                 return new ValueExpression<int> { Value = leftSideIntValue.Value / rightSideIntValue.Value, Location = leftSide.Location };
             }
         }
-        throw new ArgumentException($"Error on {leftSide.Location.GetLog()}");
+        throw new ArgumentException($"Error on {nameof(BinaryExpression)}.{nameof(DivOperation)} - {leftSide.Location.GetLog()}");
     }
 
     private ValueExpression<int> RemOperation(ValueExpression leftSide, ValueExpression rightSide)
@@ -126,7 +126,7 @@ public sealed class BinaryExpression : Expression
                 return new ValueExpression<int> { Value = leftSideIntValue.Value % rightSideIntValue.Value, Location = leftSide.Location };
             }
         }
-        throw new ArgumentException($"Error on {leftSide.Location.GetLog()}");
+        throw new ArgumentException($"Error on {nameof(BinaryExpression)}.{nameof(RemOperation)} - {leftSide.Location.GetLog()}");
     }
 
     private ValueExpression<bool> EqualOperation(ValueExpression leftSide, ValueExpression rightSide)
@@ -145,7 +145,7 @@ public sealed class BinaryExpression : Expression
                 return new ValueExpression<bool> { Value = leftSideStrValue.Value == rightSideStrValue.Value, Location = leftSide.Location };
             }
         }
-        throw new ArgumentException($"Error on {leftSide.Location.GetLog()}");
+        throw new ArgumentException($"Error on {nameof(BinaryExpression)}.{nameof(EqualOperation)} -  {leftSide.Location.GetLog()}");
     }
 
     private ValueExpression<bool> NotEqualOperation(ValueExpression leftSide, ValueExpression rightSide)
@@ -164,7 +164,7 @@ public sealed class BinaryExpression : Expression
                 return new ValueExpression<bool> { Value = leftSideStrValue.Value != rightSideStrValue.Value, Location = leftSide.Location };
             }
         }
-        throw new ArgumentException($"Error on {leftSide.Location.GetLog()}");
+        throw new ArgumentException($"Error on {nameof(BinaryExpression)}.{nameof(NotEqualOperation)} -  {leftSide.Location.GetLog()}");
     }
 
     private ValueExpression<bool> LessThanOperation(ValueExpression leftSide, ValueExpression rightSide)
@@ -176,7 +176,7 @@ public sealed class BinaryExpression : Expression
                 return new ValueExpression<bool> { Value = leftSideIntValue.Value < rightSideIntValue.Value, Location = leftSide.Location };
             }
         }
-        throw new ArgumentException($"Error on {leftSide.Location.GetLog()}");
+        throw new ArgumentException($"Error on {nameof(BinaryExpression)}.{nameof(LessThanOperation)} -  {leftSide.Location.GetLog()}");
     }
 
     private ValueExpression<bool> LessOrEqualThanOperation(ValueExpression leftSide, ValueExpression rightSide)
@@ -188,7 +188,7 @@ public sealed class BinaryExpression : Expression
                 return new ValueExpression<bool> { Value = leftSideIntValue.Value <= rightSideIntValue.Value, Location = leftSide.Location };
             }
         }
-        throw new ArgumentException($"Error on {leftSide.Location.GetLog()}");
+        throw new ArgumentException($"Error on {nameof(BinaryExpression)}.{nameof(LessOrEqualThanOperation)} - {leftSide.Location.GetLog()}");
     }
 
     private ValueExpression<bool> GreaterThanOperation(ValueExpression leftSide, ValueExpression rightSide)
@@ -200,7 +200,7 @@ public sealed class BinaryExpression : Expression
                 return new ValueExpression<bool> { Value = leftSideIntValue.Value < rightSideIntValue.Value, Location = leftSide.Location };
             }
         }
-        throw new ArgumentException($"Error on {leftSide.Location.GetLog()}");
+        throw new ArgumentException($"Error on {nameof(BinaryExpression)}.{nameof(GreaterThanOperation)} - {leftSide.Location.GetLog()}");
     }
 
     private ValueExpression<bool> GreaterOrEqualThanOperation(ValueExpression leftSide, ValueExpression rightSide)
@@ -212,7 +212,7 @@ public sealed class BinaryExpression : Expression
                 return new ValueExpression<bool> { Value = leftSideIntValue.Value <= rightSideIntValue.Value, Location = leftSide.Location };
             }
         }
-        throw new ArgumentException($"Error on {leftSide.Location.GetLog()}");
+        throw new ArgumentException($"Error on {nameof(BinaryExpression)}.{nameof(GreaterOrEqualThanOperation)} - {leftSide.Location.GetLog()}");
     }
 
     private ValueExpression<bool> AndOperation(ValueExpression leftSide, ValueExpression rightSide)
@@ -224,7 +224,7 @@ public sealed class BinaryExpression : Expression
                 return new ValueExpression<bool> { Value = leftSideIntValue.Value && rightSideIntValue.Value, Location = leftSide.Location };
             }
         }
-        throw new ArgumentException($"Error on {leftSide.Location.GetLog()}");
+        throw new ArgumentException($"Error on {nameof(BinaryExpression)}.{nameof(AndOperation)} - {leftSide.Location.GetLog()}");
     }
 
     private ValueExpression<bool> OrOperation(ValueExpression leftSide, ValueExpression rightSide)
@@ -236,6 +236,6 @@ public sealed class BinaryExpression : Expression
                 return new ValueExpression<bool> { Value = leftSideIntValue.Value && rightSideIntValue.Value, Location = leftSide.Location };
             }
         }
-        throw new ArgumentException($"Error on {leftSide.Location.GetLog()}");
+        throw new ArgumentException($"Error on {nameof(BinaryExpression)}.{nameof(OrOperation)} - {leftSide.Location.GetLog()}");
     }
 }

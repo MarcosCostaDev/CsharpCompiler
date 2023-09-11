@@ -9,6 +9,6 @@ public sealed class FirstExpression : ValueExpression<Expression>
             return tupleExpression.First.Run();
         }
 
-        throw new ArgumentException($"Error on processing {Location.GetLog()}");
+        throw new ArgumentException($"Error on {nameof(FirstExpression)}.{nameof(Run)} -  {Location.GetLog()}");
     }
 }

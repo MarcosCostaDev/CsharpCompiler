@@ -37,6 +37,6 @@ public enum Term
 [JsonDerivedType(typeof(PrintExpression), typeDiscriminator: nameof(Term.Print))]
 public abstract class Expression : FileLocator, ICommandExecute
 {
-    public Expression Parent { get; set; }
+    public Expression Scope { get; set; }
     public abstract object Run();
 }

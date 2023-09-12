@@ -8,17 +8,17 @@ public sealed class ConditionExpression : Expression
 
     public override object Run()
     {
-        Condition.Parent = this;
+        Condition.Scope = this;
 
         if (Condition is ValueExpression<bool> actualValue && actualValue.Value ||
            Condition.Run() is ValueExpression<bool> conditionResult && conditionResult.Value)
         {
-            Then.Parent = this;
+            Then.Scope = this;
             return Then.Run();
         }
         else if (Otherwise != null)
         {
-            Otherwise.Parent = this;
+            Otherwise.Scope = this;
             return Otherwise.Run();
         }
         throw new ArgumentException($"Error on {nameof(ConditionExpression)} - {Location.GetLog()}");

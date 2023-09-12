@@ -6,7 +6,7 @@ public sealed class SecondExpression : ValueExpression<Expression>
     {
         if (Value is TupleExpression tupleExpression)
         {
-            tupleExpression.Parent = this;
+            tupleExpression.Scope = this;
             return tupleExpression.Second.Run();
         }
 

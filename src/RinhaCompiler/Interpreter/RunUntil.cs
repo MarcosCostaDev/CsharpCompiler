@@ -14,10 +14,10 @@ public static class RunUntil
     {
 
         if (expression is FunctionExpression tExpression) return tExpression;
-        if (expression.Parent != null)
+        if (expression.Scope != null)
         {
-            if (expression.Parent is FunctionExpression parentExpression) return parentExpression;
-            else return FindScopedFunction(expression.Parent);
+            if (expression.Scope is FunctionExpression parentExpression) return parentExpression;
+            else return FindScopedFunction(expression.Scope);
         }
         return null!;
     }
@@ -32,20 +32,31 @@ public static class RunUntil
         throw new ArgumentException($"Variable {variableName} dont exist in current scope.");
     }
 
-    public static Expression FindAndUpdateVariableValue(this Expression expression, string variableName, Expression updatedValue)
+    public static Expression FindAndCreateOrUpdateScopedVariableValue(this Expression expression, string variableName, Expression updatedValue)
     {
         var functionExpression = FindScopedFunction(expression);
-        if (functionExpression?.ScopedVariables.ContainsKey(variableName) == true)
+        if(functionExpression != null)
         {
-            functionExpression.ScopedVariables[variableName] = updatedValue;
-            return functionExpression.ScopedVariables[variableName];
+            if (functionExpression.ScopedVariables.ContainsKey(variableName) == true)
+            {
+                functionExpression.ScopedVariables[variableName] = updatedValue;
+                return functionExpression.ScopedVariables[variableName];
+            }
+            else
+            {
+                functionExpression.ScopedVariables.Add(variableName, updatedValue);
+                return updatedValue;
+            }
         }
         else if (CompiledFile.GlobalVariables.ContainsKey(variableName))
         {
             CompiledFile.GlobalVariables[variableName] = updatedValue;
             return CompiledFile.GlobalVariables[variableName];
         }
-
-        throw new ArgumentException($"Variable {variableName} dont exist in current scope.");
+        else
+        {
+            CompiledFile.GlobalVariables.TryAdd(variableName, updatedValue);
+            return CompiledFile.GlobalVariables[variableName];
+        }
     }
 }

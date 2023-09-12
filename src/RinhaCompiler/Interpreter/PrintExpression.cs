@@ -1,10 +1,11 @@
 ﻿namespace RinhaCompiler.Interpreter;
 
-public sealed class PrintExpression : ValueExpression<Expression>
+public sealed class PrintExpression : Expression
 {
+    public Expression Value { get; set; }
     public override object Run()
     {
-        Value.Parent = this;
+        Value.Scope = this;
         var runResult = Value.Run();
         if (runResult is bool boolValue)
         {
@@ -26,7 +27,7 @@ public sealed class PrintExpression : ValueExpression<Expression>
                 Console.WriteLine($"({tupleExpression.First.Run()}, {tupleExpression.Second.Run()})");
                 return null!;
             }
-            expressionValue.Parent = this;
+            expressionValue.Scope = this;
             Console.WriteLine(expressionValue.Run());
         }
         return null!;

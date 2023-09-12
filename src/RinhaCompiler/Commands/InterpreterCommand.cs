@@ -17,8 +17,6 @@ internal sealed class InterpreterCommand : AbstractCommand
 
     public override async Task ExecuteAsync(CancellationToken cancellationToken = default)
     {
-        Console.WriteLine(_jsonFile);
-       
         var compiledFile = await GetCompiledFile(cancellationToken);
 
         compiledFile.Run();

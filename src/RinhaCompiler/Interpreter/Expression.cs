@@ -1,4 +1,5 @@
-﻿using System.Text.Json.Serialization;
+﻿using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace RinhaCompiler.Interpreter;
 
@@ -39,4 +40,10 @@ public abstract class Expression : FileLocator, ICommandExecute
 {
     public Expression Scope { get; set; }
     public abstract object Run();
+
+    public TExpression DeepClone<TExpression>() where TExpression : Expression
+    {
+        var json = JsonSerializer.Serialize(this, new JsonSerializerOptions { ReferenceHandler = ReferenceHandler.IgnoreCycles });
+        return JsonSerializer.Deserialize<TExpression>(json, new JsonSerializerOptions { ReferenceHandler = ReferenceHandler.IgnoreCycles });
+    }
 }

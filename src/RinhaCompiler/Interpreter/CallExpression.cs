@@ -1,4 +1,7 @@
-﻿namespace RinhaCompiler.Interpreter;
+﻿using System.Text.Json;
+using System.Text.Json.Serialization;
+
+namespace RinhaCompiler.Interpreter;
 
 public sealed class CallExpression : Expression
 {
@@ -19,15 +22,18 @@ public sealed class CallExpression : Expression
                     arg.Scope = this;
                     if (arg is ValueExpression value)
                     {
-                        functionExpression.Parameters[i].Value = value;
+                        functionExpression.Parameters[i].Value = value.Run();
                     }
                     else if (arg is BinaryExpression binaryValue)
                     {
-                        functionExpression.Parameters[i].Value = binaryValue.Run() as ValueExpression;
+                        var valueProcessed = binaryValue.Run() as ValueExpression;
+                        valueProcessed.Scope = null;
+                        functionExpression.Parameters[i].Value = valueProcessed.Run();
                     }
                 }
                 functionExpression.Scope = null!;
-                return functionExpression.Run();
+                var func = functionExpression.DeepClone<FunctionExpression>();
+                return func.Run();
             }
         }
         return Callee.Run();

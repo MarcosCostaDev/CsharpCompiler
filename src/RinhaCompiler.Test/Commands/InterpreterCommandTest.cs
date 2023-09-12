@@ -1,6 +1,5 @@
 ﻿using RinhaCompiler.Test.Abstracts;
 using RinhaCompiler.Test.Managers;
-using System.Runtime.CompilerServices;
 
 namespace RinhaCompiler.Test.Commands;
 [Collection(nameof(CommandsCollection))]

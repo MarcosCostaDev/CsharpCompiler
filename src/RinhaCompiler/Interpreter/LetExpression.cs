@@ -1,4 +1,6 @@
-﻿namespace RinhaCompiler.Interpreter;
+﻿using System.CommandLine;
+
+namespace RinhaCompiler.Interpreter;
 
 public sealed class LetExpression : Expression
 {
@@ -9,7 +11,20 @@ public sealed class LetExpression : Expression
     {
         Next.Scope = this;
         Value.Scope = this;
-        RunUntil.FindAndCreateOrUpdateScopedVariableValue(this, Name.Text, Value);
+
+        ValueExpression result = null;
+        if (Value is BinaryExpression binaryExpression)
+        {
+            var runResult = binaryExpression.Run();
+            result = runResult as ValueExpression;
+            RunUntil.FindAndCreateOrUpdateScopedVariableValue(this, Name.Text, result);
+        }
+        else
+        {
+
+            RunUntil.FindAndCreateOrUpdateScopedVariableValue(this, Name.Text, Value);
+        }
+
         return Next.Run();
     }
 }

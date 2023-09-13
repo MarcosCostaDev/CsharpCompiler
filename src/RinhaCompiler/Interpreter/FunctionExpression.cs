@@ -1,6 +1,4 @@
-﻿using System.Text.Json;
-
-namespace RinhaCompiler.Interpreter;
+﻿namespace RinhaCompiler.Interpreter;
 
 public sealed class FunctionExpression : Expression
 {
@@ -19,23 +17,7 @@ public sealed class FunctionExpression : Expression
     {
         for (int i = 0; i < Parameters.Length; i++)
         {
-            Expression value = null!;
-            if (Parameters[i].Value is JsonElement jsonValue)
-            {
-                switch (jsonValue.ValueKind)
-                {
-                    case JsonValueKind.String:
-                        value = new ValueExpression<string> { Value = jsonValue.ToString(), Scope = this, Location = Location };
-                        break;
-                    case JsonValueKind.Number:
-                        value = new ValueExpression<int> { Value = Convert.ToInt32(jsonValue.ToString()), Scope = this, Location = Location };
-                        break;
-                    case JsonValueKind.True:
-                    case JsonValueKind.False:
-                        value = new ValueExpression<bool> { Value = Convert.ToBoolean(jsonValue.ToString()), Scope = this, Location = Location };
-                        break;
-                }
-            }
+            var value = Parameters[i].GetValue(this);
 
             if (ScopedVariables.ContainsKey(Parameters[i].Text))
             {

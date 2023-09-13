@@ -2,7 +2,16 @@
 using RinhaCompiler.Commands.Manager;
 using System.CommandLine;
 
-var rootCommand = new RootCommand("Welcome to my first ever interpreter for .rinha files. \n #rinha-de-compiladores");
+var description = @"
+
+ Welcome to my first ever interpreter that read and process AST.json from .rinha files. in C# 
+ Developer: Marcos Costa
+ Github: https://github.com/MarcosCostaDev
+
+ #csharp #dotnet-core #rinha-de-compilers
+ #rinha-de-compiler #rinha-de-compiladores";
+
+var rootCommand = new RootCommand(description);
 
 rootCommand.AddAllCommands();
 

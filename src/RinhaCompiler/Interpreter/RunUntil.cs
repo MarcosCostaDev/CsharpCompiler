@@ -7,7 +7,7 @@ public static class RunUntil
         if (expression is TExpression tExpression) return tExpression;
         var expResult = expression.Run();
         if (expResult is Expression exp) return Find<TExpression>(exp);
-        throw new ArgumentException($"Error on {nameof(RunUntil)}.{nameof(Find)} {expression.GetType()} >> {typeof(TExpression)}- {expression.Location.GetLog()}");
+        throw new ArgumentException($"Error on {nameof(RunUntil)}.{nameof(Find)} from {expression.GetType()} to {typeof(TExpression)}- {expression.Location.GetLog()}");
     }
 
     public static FunctionExpression FindScopedFunction(this Expression expression)
@@ -35,8 +35,9 @@ public static class RunUntil
     public static Expression FindAndCreateOrUpdateScopedVariableValue(this Expression expression, string variableName, Expression updatedValue)
     {
         var functionExpression = FindScopedFunction(expression);
-        if(functionExpression != null)
+        if (functionExpression != null)
         {
+
             if (functionExpression.ScopedVariables.ContainsKey(variableName) == true)
             {
                 functionExpression.ScopedVariables[variableName] = updatedValue;
@@ -44,6 +45,7 @@ public static class RunUntil
             }
             else
             {
+       
                 functionExpression.ScopedVariables.Add(variableName, updatedValue);
                 return updatedValue;
             }

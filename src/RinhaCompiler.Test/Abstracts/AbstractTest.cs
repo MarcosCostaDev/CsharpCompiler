@@ -1,5 +1,6 @@
 ﻿using RinhaCompiler.Test.Managers;
 using Xunit.Abstractions;
+using Xunit.Sdk;
 
 namespace RinhaCompiler.Test.Abstracts;
 
@@ -8,8 +9,17 @@ public abstract class AbstractTest
     public AbstractTest(ITestOutputHelper output)
     {
         Console.SetOut(new RedirectOutput(output));
-        Output = output;
+        OutputTestlog = output;
     }
 
-    protected ITestOutputHelper Output { get; private set; }
+    protected string GetLogMessages()
+    {
+        if(OutputTestlog is TestOutputHelper outputHelper)
+        {
+            return outputHelper.Output.Trim();
+        }
+        return string.Empty;
+    }
+
+    protected ITestOutputHelper OutputTestlog { get; private set; }
 }

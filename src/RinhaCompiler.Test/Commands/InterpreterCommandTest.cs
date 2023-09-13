@@ -5,7 +5,7 @@ namespace RinhaCompiler.Test.Commands;
 [Collection(nameof(CommandsCollection))]
 public class InterpreterCommandTest : AbstractTest
 {
-    public InterpreterCommandTest(ITestOutputHelper output) : base(output)
+    public InterpreterCommandTest(ITestOutputHelper outputTestLog) : base(outputTestLog)
     {
     }
 
@@ -15,6 +15,8 @@ public class InterpreterCommandTest : AbstractTest
         var command = new InterpreterCommand(FileManager.GetFullPath("helloworld.json"));
 
         await command.ExecuteAsync();
+
+        GetLogMessages().Should().Be("Hello, world!");
     }
 
     [Fact]
@@ -23,6 +25,8 @@ public class InterpreterCommandTest : AbstractTest
         var command = new InterpreterCommand(FileManager.GetFullPath("fib.json"));
 
         await command.ExecuteAsync();
+
+        Convert.ToInt32(GetLogMessages()).Should().Be(55);
     }
 
     [Fact]
@@ -31,6 +35,8 @@ public class InterpreterCommandTest : AbstractTest
         var command = new InterpreterCommand(FileManager.GetFullPath("let.json"));
 
         await command.ExecuteAsync();
+
+        Convert.ToInt32(GetLogMessages()).Should().Be(3);
     }
 
     [Fact]
@@ -39,6 +45,8 @@ public class InterpreterCommandTest : AbstractTest
         var command = new InterpreterCommand(FileManager.GetFullPath("if.json"));
 
         await command.ExecuteAsync();
+
+        GetLogMessages().Should().Be("Verdadeiro");
     }
 
     [Fact]
@@ -47,6 +55,8 @@ public class InterpreterCommandTest : AbstractTest
         var command = new InterpreterCommand(FileManager.GetFullPath("add.json"));
 
         await command.ExecuteAsync();
+
+        GetLogMessages().Should().Be("1 + 2 = 3");
     }
 
     [Fact]
@@ -55,6 +65,8 @@ public class InterpreterCommandTest : AbstractTest
         var command = new InterpreterCommand(FileManager.GetFullPath("function.json"));
 
         await command.ExecuteAsync();
+
+        Convert.ToInt32(GetLogMessages()).Should().Be(6);
     }
 
     [Fact]
@@ -63,6 +75,8 @@ public class InterpreterCommandTest : AbstractTest
         var command = new InterpreterCommand(FileManager.GetFullPath("combination.json"));
 
         await command.ExecuteAsync();
+
+        Convert.ToInt32(GetLogMessages()).Should().Be(3);
     }
 
     [Fact]
@@ -71,5 +85,7 @@ public class InterpreterCommandTest : AbstractTest
         var command = new InterpreterCommand(FileManager.GetFullPath("sum.json"));
 
         await command.ExecuteAsync();
+
+        Convert.ToInt32(GetLogMessages()).Should().Be(15);
     }
 }

@@ -11,12 +11,12 @@ public sealed class VarExpression : Expression
 
     public Expression GetValue()
     {
-        return RunUntil.FindVariableValue(this, Text);
+        return RunUtil.FindVariableValue(this, Text);
     }
 
     public Expression SetValue(Expression value)
     {
-        return RunUntil.FindAndCreateOrUpdateScopedVariableValue(this, Text, value);
+        return RunUtil.FindAndCreateOrUpdateScopedVariableValue(this, Text, value);
     }
 
 }

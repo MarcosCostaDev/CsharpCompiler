@@ -29,22 +29,4 @@ internal sealed class InterpreterCommand : AbstractCommand
         return await JsonSerializer.DeserializeAsync<CompiledFile?>(stream, JsonExtensions.GetJsonDeserializerOptions(), cancellationToken: cancellationToken);
     }
 
-    internal static Command GetCommand()
-    {
-        var command = new Command("interpreter", "Interpreter AST.json file.");
-
-        command.AddAlias("i");
-
-        var fileOption = new Option<FileInfo?>("--file", "Your file AST-json-file.json to interpreter");
-        fileOption.AddAlias("-f");
-
-        command.AddOption(fileOption);
-
-        command.SetHandler(async (fileOption) =>
-        {
-            Program.GlobalCommandManager.Invoke(new InterpreterCommand(fileOption?.FullName));
-        }, fileOption);
-
-        return command;
-    }
 }

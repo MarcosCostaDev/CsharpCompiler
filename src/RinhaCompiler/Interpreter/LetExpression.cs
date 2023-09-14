@@ -1,6 +1,4 @@
-﻿using System.CommandLine;
-
-namespace RinhaCompiler.Interpreter;
+﻿namespace RinhaCompiler.Interpreter;
 
 public sealed class LetExpression : Expression
 {

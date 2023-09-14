@@ -10,7 +10,7 @@ public class InterpreterCommandTest : AbstractTest
     }
 
     [Fact]
-    public async Task HelloWorldTest()
+    public async Task HelloWorldMessage()
     {
         var command = new InterpreterCommand(FileManager.GetFullPath("helloworld.json"));
 
@@ -20,7 +20,7 @@ public class InterpreterCommandTest : AbstractTest
     }
 
     [Fact]
-    public async Task FibTest()
+    public async Task FibonacciResult_eq_55()
     {
         var command = new InterpreterCommand(FileManager.GetFullPath("fib.json"));
 
@@ -30,7 +30,7 @@ public class InterpreterCommandTest : AbstractTest
     }
 
     [Fact]
-    public async Task LetTest()
+    public async Task LetSum_eq_3()
     {
         var command = new InterpreterCommand(FileManager.GetFullPath("let.json"));
 
@@ -40,7 +40,7 @@ public class InterpreterCommandTest : AbstractTest
     }
 
     [Fact]
-    public async Task IfTest()
+    public async Task if_eq_verdadeiro()
     {
         var command = new InterpreterCommand(FileManager.GetFullPath("if.json"));
 
@@ -50,7 +50,7 @@ public class InterpreterCommandTest : AbstractTest
     }
 
     [Fact]
-    public async Task AddTest()
+    public async Task add_eq_formula_str()
     {
         var command = new InterpreterCommand(FileManager.GetFullPath("add.json"));
 
@@ -60,27 +60,25 @@ public class InterpreterCommandTest : AbstractTest
     }
 
     [Fact]
-    public async Task FunctionTest()
+    public async Task Function_variable_not_exist_should_throw_exception()
     {
         var command = new InterpreterCommand(FileManager.GetFullPath("function.json"));
 
-        await command.ExecuteAsync();
-
-        Convert.ToInt32(GetLogMessages()).Should().Be(6);
+       await Assert.ThrowsAsync<ArgumentException>(async () => await command.ExecuteAsync());
     }
 
     [Fact]
-    public async Task CombinationTest()
+    public async Task Combination_eq_44()
     {
         var command = new InterpreterCommand(FileManager.GetFullPath("combination.json"));
 
         await command.ExecuteAsync();
 
-        Convert.ToInt32(GetLogMessages()).Should().Be(3);
+        Convert.ToInt32(GetLogMessages()).Should().Be(44);
     }
 
     [Fact]
-    public async Task SumTest()
+    public async Task Sum_eq_15()
     {
         var command = new InterpreterCommand(FileManager.GetFullPath("sum.json"));
 

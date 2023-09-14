@@ -27,7 +27,6 @@ public sealed class CallExpression : Expression
                     else if (arg is BinaryExpression binaryValue)
                     {
                         var valueProcessed = binaryValue.Run() as ValueExpression;
-                        valueProcessed.Scope = null;
                         functionExpression.Parameters[i].Value = valueProcessed.Run();
                     }
                 }

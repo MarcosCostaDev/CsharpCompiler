@@ -1,5 +1,5 @@
 {
-  "name": "files/combination.rinha",
+  "name": "combination.rinha",
   "expression": {
     "kind": "Let",
     "name": {
@@ -7,7 +7,7 @@
       "location": {
         "start": 4,
         "end": 15,
-        "filename": "files/combination.rinha"
+        "filename": "combination.rinha"
       }
     },
     "value": {
@@ -18,7 +18,7 @@
           "location": {
             "start": 22,
             "end": 23,
-            "filename": "files/combination.rinha"
+            "filename": "combination.rinha"
           }
         },
         {
@@ -26,7 +26,7 @@
           "location": {
             "start": 25,
             "end": 26,
-            "filename": "files/combination.rinha"
+            "filename": "combination.rinha"
           }
         }
       ],
@@ -37,7 +37,7 @@
           "location": {
             "start": 41,
             "end": 42,
-            "filename": "files/combination.rinha"
+            "filename": "combination.rinha"
           }
         },
         "value": {
@@ -48,7 +48,7 @@
             "location": {
               "start": 45,
               "end": 46,
-              "filename": "files/combination.rinha"
+              "filename": "combination.rinha"
             }
           },
           "op": "Eq",
@@ -58,13 +58,13 @@
             "location": {
               "start": 50,
               "end": 51,
-              "filename": "files/combination.rinha"
+              "filename": "combination.rinha"
             }
           },
           "location": {
             "start": 45,
             "end": 51,
-            "filename": "files/combination.rinha"
+            "filename": "combination.rinha"
           }
         },
         "next": {
@@ -74,7 +74,7 @@
             "location": {
               "start": 61,
               "end": 62,
-              "filename": "files/combination.rinha"
+              "filename": "combination.rinha"
             }
           },
           "value": {
@@ -85,7 +85,7 @@
               "location": {
                 "start": 65,
                 "end": 66,
-                "filename": "files/combination.rinha"
+                "filename": "combination.rinha"
               }
             },
             "op": "Eq",
@@ -95,13 +95,13 @@
               "location": {
                 "start": 70,
                 "end": 71,
-                "filename": "files/combination.rinha"
+                "filename": "combination.rinha"
               }
             },
             "location": {
               "start": 65,
               "end": 71,
-              "filename": "files/combination.rinha"
+              "filename": "combination.rinha"
             }
           },
           "next": {
@@ -114,7 +114,7 @@
                 "location": {
                   "start": 81,
                   "end": 82,
-                  "filename": "files/combination.rinha"
+                  "filename": "combination.rinha"
                 }
               },
               "op": "Or",
@@ -124,13 +124,13 @@
                 "location": {
                   "start": 86,
                   "end": 87,
-                  "filename": "files/combination.rinha"
+                  "filename": "combination.rinha"
                 }
               },
               "location": {
                 "start": 81,
                 "end": 87,
-                "filename": "files/combination.rinha"
+                "filename": "combination.rinha"
               }
             },
             "then": {
@@ -139,7 +139,7 @@
               "location": {
                 "start": 103,
                 "end": 104,
-                "filename": "files/combination.rinha"
+                "filename": "combination.rinha"
               }
             },
             "otherwise": {
@@ -152,7 +152,7 @@
                   "location": {
                     "start": 130,
                     "end": 141,
-                    "filename": "files/combination.rinha"
+                    "filename": "combination.rinha"
                   }
                 },
                 "arguments": [
@@ -164,7 +164,7 @@
                       "location": {
                         "start": 142,
                         "end": 143,
-                        "filename": "files/combination.rinha"
+                        "filename": "combination.rinha"
                       }
                     },
                     "op": "Sub",
@@ -174,13 +174,13 @@
                       "location": {
                         "start": 146,
                         "end": 147,
-                        "filename": "files/combination.rinha"
+                        "filename": "combination.rinha"
                       }
                     },
                     "location": {
                       "start": 142,
                       "end": 147,
-                      "filename": "files/combination.rinha"
+                      "filename": "combination.rinha"
                     }
                   },
                   {
@@ -191,7 +191,7 @@
                       "location": {
                         "start": 149,
                         "end": 150,
-                        "filename": "files/combination.rinha"
+                        "filename": "combination.rinha"
                       }
                     },
                     "op": "Sub",
@@ -201,20 +201,20 @@
                       "location": {
                         "start": 153,
                         "end": 154,
-                        "filename": "files/combination.rinha"
+                        "filename": "combination.rinha"
                       }
                     },
                     "location": {
                       "start": 149,
                       "end": 154,
-                      "filename": "files/combination.rinha"
+                      "filename": "combination.rinha"
                     }
                   }
                 ],
                 "location": {
                   "start": 130,
                   "end": 155,
-                  "filename": "files/combination.rinha"
+                  "filename": "combination.rinha"
                 }
               },
               "op": "Add",
@@ -226,7 +226,7 @@
                   "location": {
                     "start": 158,
                     "end": 169,
-                    "filename": "files/combination.rinha"
+                    "filename": "combination.rinha"
                   }
                 },
                 "arguments": [
@@ -238,7 +238,7 @@
                       "location": {
                         "start": 170,
                         "end": 171,
-                        "filename": "files/combination.rinha"
+                        "filename": "combination.rinha"
                       }
                     },
                     "op": "Sub",
@@ -248,13 +248,13 @@
                       "location": {
                         "start": 174,
                         "end": 175,
-                        "filename": "files/combination.rinha"
+                        "filename": "combination.rinha"
                       }
                     },
                     "location": {
                       "start": 170,
                       "end": 175,
-                      "filename": "files/combination.rinha"
+                      "filename": "combination.rinha"
                     }
                   },
                   {
@@ -263,44 +263,44 @@
                     "location": {
                       "start": 177,
                       "end": 178,
-                      "filename": "files/combination.rinha"
+                      "filename": "combination.rinha"
                     }
                   }
                 ],
                 "location": {
                   "start": 158,
                   "end": 179,
-                  "filename": "files/combination.rinha"
+                  "filename": "combination.rinha"
                 }
               },
               "location": {
                 "start": 130,
                 "end": 179,
-                "filename": "files/combination.rinha"
+                "filename": "combination.rinha"
               }
             },
             "location": {
               "start": 77,
               "end": 185,
-              "filename": "files/combination.rinha"
+              "filename": "combination.rinha"
             }
           },
           "location": {
             "start": 57,
             "end": 185,
-            "filename": "files/combination.rinha"
+            "filename": "combination.rinha"
           }
         },
         "location": {
           "start": 37,
           "end": 185,
-          "filename": "files/combination.rinha"
+          "filename": "combination.rinha"
         }
       },
       "location": {
         "start": 18,
         "end": 187,
-        "filename": "files/combination.rinha"
+        "filename": "combination.rinha"
       }
     },
     "next": {
@@ -313,7 +313,7 @@
           "location": {
             "start": 196,
             "end": 207,
-            "filename": "files/combination.rinha"
+            "filename": "combination.rinha"
           }
         },
         "arguments": [
@@ -323,7 +323,7 @@
             "location": {
               "start": 208,
               "end": 210,
-              "filename": "files/combination.rinha"
+              "filename": "combination.rinha"
             }
           },
           {
@@ -332,31 +332,31 @@
             "location": {
               "start": 212,
               "end": 213,
-              "filename": "files/combination.rinha"
+              "filename": "combination.rinha"
             }
           }
         ],
         "location": {
           "start": 196,
           "end": 214,
-          "filename": "files/combination.rinha"
+          "filename": "combination.rinha"
         }
       },
       "location": {
         "start": 190,
         "end": 215,
-        "filename": "files/combination.rinha"
+        "filename": "combination.rinha"
       }
     },
     "location": {
       "start": 0,
       "end": 215,
-      "filename": "files/combination.rinha"
+      "filename": "combination.rinha"
     }
   },
   "location": {
     "start": 0,
     "end": 215,
-    "filename": "files/combination.rinha"
+    "filename": "combination.rinha"
   }
 }

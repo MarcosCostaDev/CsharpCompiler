@@ -6,7 +6,7 @@ public class BinaryExpressionTest
 {
 
     [Fact]
-    public void AddResultEq3()
+    public void Add_Result_Eq_3()
     {
         var binary = new BinaryExpression
         {
@@ -26,7 +26,47 @@ public class BinaryExpressionTest
     }
 
     [Fact]
-    public void SubResultEq5()
+    public void AddConcat_Result_Eq_12()
+    {
+        var binary = new BinaryExpression
+        {
+            LeftHandSide = new ValueExpression<int>
+            {
+                Value = 1
+            },
+            RightHandSide = new ValueExpression<string>
+            {
+                Value = "2"
+            },
+            Operation = BinaryOperator.Add
+        };
+
+        var sut = binary.Run() as ValueExpression<string>;
+        sut.Value.Should().Be("12");
+    }
+
+    [Fact]
+    public void AddConcat_Result_Eq_32()
+    {
+        var binary = new BinaryExpression
+        {
+            LeftHandSide = new ValueExpression<string>
+            {
+                Value = "3"
+            },
+            RightHandSide = new ValueExpression<int>
+            {
+                Value = 2
+            },
+            Operation = BinaryOperator.Add
+        };
+
+        var sut = binary.Run() as ValueExpression<string>;
+        sut.Value.Should().Be("32");
+    }
+
+    [Fact]
+    public void SubResult_Eq_5()
     {
         var binary = new BinaryExpression
         {
@@ -46,7 +86,7 @@ public class BinaryExpressionTest
     }
 
     [Fact]
-    public void SubResultEqMinus5()
+    public void SubResult_Eq_Minus5()
     {
         var binary = new BinaryExpression
         {
@@ -66,7 +106,7 @@ public class BinaryExpressionTest
     }
 
     [Fact]
-    public void MulResultEq15()
+    public void MulResult_Eq_15()
     {
         var binary = new BinaryExpression
         {
@@ -86,7 +126,7 @@ public class BinaryExpressionTest
     }
 
     [Fact]
-    public void DivResultEq5()
+    public void DivResult_Eq_5()
     {
         var binary = new BinaryExpression
         {
@@ -106,7 +146,7 @@ public class BinaryExpressionTest
     }
 
     [Fact]
-    public void RemResultEq5()
+    public void RemResult_Eq_5()
     {
         var binary = new BinaryExpression
         {
@@ -127,7 +167,7 @@ public class BinaryExpressionTest
 
 
     [Fact]
-    public void EqIntResultEqTrue()
+    public void EqIntResult_Eq_True()
     {
         var binary = new BinaryExpression
         {
@@ -148,7 +188,7 @@ public class BinaryExpressionTest
 
 
     [Fact]
-    public void EqIntResultEqFalse()
+    public void EqIntResult_Eq_False()
     {
         var binary = new BinaryExpression
         {
@@ -168,7 +208,7 @@ public class BinaryExpressionTest
     }
 
     [Fact]
-    public void EqIntResultNeqFalse()
+    public void EqIntResult_Neq_False()
     {
         var binary = new BinaryExpression
         {
@@ -189,7 +229,7 @@ public class BinaryExpressionTest
 
 
     [Fact]
-    public void EqIntResultNeqTrue()
+    public void EqIntResult_Neq_True()
     {
         var binary = new BinaryExpression
         {
@@ -210,7 +250,7 @@ public class BinaryExpressionTest
 
 
     [Fact]
-    public void EqBoolResultEqTrue()
+    public void EqBoolResult_Eq_True()
     {
         var binary = new BinaryExpression
         {
@@ -231,7 +271,7 @@ public class BinaryExpressionTest
 
 
     [Fact]
-    public void EqBoolResultEqFalse()
+    public void EqBoolResult_Eq_False()
     {
         var binary = new BinaryExpression
         {
@@ -251,7 +291,7 @@ public class BinaryExpressionTest
     }
 
     [Fact]
-    public void EqBoolResultNeqFalse()
+    public void EqBoolResult_Neq_False()
     {
         var binary = new BinaryExpression
         {
@@ -272,7 +312,7 @@ public class BinaryExpressionTest
 
 
     [Fact]
-    public void EqBoolResultNeqTrue()
+    public void EqBoolResult_NeqTrue()
     {
         var binary = new BinaryExpression
         {
@@ -293,7 +333,7 @@ public class BinaryExpressionTest
 
 
     [Fact]
-    public void AndBoolResultEqTrue()
+    public void AndBoolResult_Eq_True()
     {
         var binary = new BinaryExpression
         {
@@ -313,7 +353,7 @@ public class BinaryExpressionTest
     }
 
     [Fact]
-    public void AndBoolResultEqFalse()
+    public void AndBoolResult_Eq_False()
     {
         var binary = new BinaryExpression
         {
@@ -333,7 +373,7 @@ public class BinaryExpressionTest
     }
 
     [Fact]
-    public void OrBoolResultEqTrue()
+    public void OrBoolResult_Eq_True()
     {
         var binary = new BinaryExpression
         {
@@ -353,7 +393,7 @@ public class BinaryExpressionTest
     }
 
     [Fact]
-    public void OrBoolResultEqFalse()
+    public void OrBoolResult_Eq_False()
     {
         var binary = new BinaryExpression
         {

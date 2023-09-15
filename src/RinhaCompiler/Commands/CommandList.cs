@@ -1,5 +1,4 @@
 ﻿using System.CommandLine;
-using System.IO;
 
 namespace RinhaCompiler.Commands;
 
@@ -12,7 +11,7 @@ internal static class CommandList
             HelpName = "file AST.json"
         };
 
-        var interpreterOption = new Option<string>("-interpreter", "interpret the file selected") { IsRequired = false };
+        var interpreterOption = new Option<string>("-interpreter", "Tree-Walking Interpreter") { IsRequired = false };
         interpreterOption.AddAlias("-i");
         rootCommand.AddArgument(fileArgument);
         rootCommand.AddGlobalOption(interpreterOption);

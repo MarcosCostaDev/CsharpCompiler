@@ -1,5 +1,4 @@
 ﻿using RinhaCompiler.Interfaces;
-using System.CommandLine;
 
 namespace RinhaCompiler.Commands.Abstracts;
 

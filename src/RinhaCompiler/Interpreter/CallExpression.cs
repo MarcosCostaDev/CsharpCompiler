@@ -28,7 +28,7 @@ public sealed class CallExpression : Expression
                         functionExpression.Parameters[i].Value = arg.Run();
                     }
                 }
-             
+
                 return functionExpression.Run();
             }
         }

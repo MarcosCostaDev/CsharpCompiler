@@ -1,7 +1,5 @@
-﻿using static System.Formats.Asn1.AsnWriter;
+﻿using System.Text.Json;
 using System.Text.Json.Serialization;
-using System.Text.Json;
-using System.Runtime.CompilerServices;
 
 namespace RinhaCompiler.Interpreter;
 

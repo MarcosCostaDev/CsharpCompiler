@@ -5,6 +5,13 @@
     <TargetFramework>net7.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Description>The slowest AST interpreter you've seen in your life! This project is participant of The first Rinha de compiladores promoted by https://github.com/aripiprazole/rinha-de-compiler</Description>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/MarcosCostaDev/RinhaCompiler</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>rinha-de-compiladores;rinha-compiler;rinha-de-compilers</PackageTags>
+    <Copyright>Marcos Costa </Copyright>
   </PropertyGroup>
 
   <ItemGroup>
@@ -14,6 +21,13 @@
 
   <ItemGroup>
     <InternalsVisibleTo Include="RinhaCompiler.Test" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>

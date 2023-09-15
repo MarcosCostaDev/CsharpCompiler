@@ -1,5 +1,4 @@
-﻿using System.Text.Json;
-using System.Text.Json.Serialization;
+﻿using System.Text.Json.Serialization;
 
 namespace RinhaCompiler.Interpreter;
 
@@ -41,5 +40,5 @@ public abstract class Expression : FileLocator, ICommandExecute
     public Expression Scope { get; set; }
     public abstract object Run();
 
-   
+
 }

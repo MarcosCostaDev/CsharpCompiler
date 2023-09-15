@@ -17,7 +17,8 @@ rootCommand.AddAllCommands();
 
 rootCommand.Invoke(args);
 
-internal partial class Program {
+internal partial class Program
+{
     internal static CommandManager GlobalCommandManager = new();
 }
 

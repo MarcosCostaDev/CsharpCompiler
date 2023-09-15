@@ -6,7 +6,7 @@ public sealed class VarExpression : Expression
 
     public override object Run()
     {
-       return GetValue();
+        return GetValue();
     }
 
     public Expression GetValue()

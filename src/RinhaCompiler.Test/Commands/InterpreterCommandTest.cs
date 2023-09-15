@@ -64,7 +64,7 @@ public class InterpreterCommandTest : AbstractTest
     {
         var command = new InterpreterCommand(FileManager.GetFullPath("function.json"));
 
-       await Assert.ThrowsAsync<ArgumentException>(async () => await command.ExecuteAsync());
+        await Assert.ThrowsAsync<ArgumentException>(async () => await command.ExecuteAsync());
     }
 
     [Fact]

@@ -1,5 +1,4 @@
 ﻿using RinhaCompiler.Test.Managers;
-using Xunit.Abstractions;
 using Xunit.Sdk;
 
 namespace RinhaCompiler.Test.Abstracts;
@@ -14,7 +13,7 @@ public abstract class AbstractTest
 
     protected string GetLogMessages()
     {
-        if(OutputTestlog is TestOutputHelper outputHelper)
+        if (OutputTestlog is TestOutputHelper outputHelper)
         {
             return outputHelper.Output.Trim();
         }

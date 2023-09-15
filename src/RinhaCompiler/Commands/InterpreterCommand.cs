@@ -14,6 +14,11 @@ internal sealed class InterpreterCommand : AbstractCommand
         _jsonFile = jsonFile;
     }
 
+    public override bool CanExecute()
+    {
+        return File.Exists(_jsonFile);
+    }
+
     public override async Task ExecuteAsync(CancellationToken cancellationToken = default)
     {
         var compiledFile = await GetCompiledFile(cancellationToken);

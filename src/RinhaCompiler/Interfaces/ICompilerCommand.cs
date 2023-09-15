@@ -1,6 +1,4 @@
-﻿using System.CommandLine;
-
-namespace RinhaCompiler.Interfaces;
+﻿namespace RinhaCompiler.Interfaces;
 
 internal interface ICompilerCommand
 {

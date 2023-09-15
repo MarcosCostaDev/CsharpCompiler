@@ -19,14 +19,7 @@ public sealed class FunctionExpression : Expression
         {
             var value = Parameters[i].GetValue(this);
 
-            if (ScopedVariables.ContainsKey(Parameters[i].Text))
-            {
-                ScopedVariables[Parameters[i].Text] = value;
-            }
-            else
-            {
-                ScopedVariables.Add(Parameters[i].Text, value);
-            }
+            ScopedVariables.Add(Parameters[i].Text, value);
         }
     }
 }

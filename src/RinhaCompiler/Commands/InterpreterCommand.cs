@@ -1,7 +1,6 @@
 ﻿using RinhaCompiler.Commands.Abstracts;
 using RinhaCompiler.Extensions;
 using RinhaCompiler.Interpreter;
-using System.CommandLine;
 using System.Text.Json;
 
 namespace RinhaCompiler.Commands;

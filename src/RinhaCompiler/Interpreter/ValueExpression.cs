@@ -9,4 +9,9 @@ public class ValueExpression<T> : ValueExpression
     {
         return Value;
     }
+
+    public override string ToString()
+    {
+        return Value.ToString();
+    }
 }

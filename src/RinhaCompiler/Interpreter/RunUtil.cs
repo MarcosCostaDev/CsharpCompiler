@@ -1,4 +1,9 @@
-﻿namespace RinhaCompiler.Interpreter;
+﻿using static System.Formats.Asn1.AsnWriter;
+using System.Text.Json.Serialization;
+using System.Text.Json;
+using System.Runtime.CompilerServices;
+
+namespace RinhaCompiler.Interpreter;
 
 public static class RunUtil
 {
@@ -28,40 +33,20 @@ public static class RunUtil
 
     public static Expression FindVariableValue(this Expression expression, string variableName)
     {
-        var functionExpression = FindScopedFunction(expression);
-        if (functionExpression?.ScopedVariables.ContainsKey(variableName) == true) return functionExpression.ScopedVariables[variableName];
-        else if (CompiledFile.GlobalVariables.ContainsKey(variableName)) return CompiledFile.GlobalVariables[variableName];
+        var scopedVariables = FindScopedVariables(expression);
+        if (scopedVariables.ContainsKey(variableName) == true) return scopedVariables[variableName];
+        if (CompiledFile.GlobalVariables.ContainsKey(variableName) == true) return CompiledFile.GlobalVariables[variableName];
         throw new ArgumentException($"Variable {variableName} dont exist in current scope.");
     }
 
-    public static Expression FindAndCreateOrUpdateScopedVariableValue(this Expression expression, string variableName, Expression updatedValue)
+    public static IDictionary<string, Expression> FindScopedVariables(this Expression expression)
     {
         var functionExpression = FindScopedFunction(expression);
         if (functionExpression != null)
         {
-
-            if (functionExpression.ScopedVariables.ContainsKey(variableName) == true)
-            {
-                functionExpression.ScopedVariables[variableName] = updatedValue;
-                return functionExpression.ScopedVariables[variableName];
-            }
-            else
-            {
-
-                functionExpression.ScopedVariables.Add(variableName, updatedValue);
-                return updatedValue;
-            }
+            return functionExpression.ScopedVariables;
         }
-        else if (CompiledFile.GlobalVariables.ContainsKey(variableName))
-        {
-            CompiledFile.GlobalVariables[variableName] = updatedValue;
-            return CompiledFile.GlobalVariables[variableName];
-        }
-        else
-        {
-            CompiledFile.GlobalVariables.TryAdd(variableName, updatedValue);
-            return CompiledFile.GlobalVariables[variableName];
-        }
+        return CompiledFile.GlobalVariables;
     }
 
     public static TValueExpression? ConvertToValueExpression<TValueExpression>(Expression scope, object value) where TValueExpression : Expression
@@ -91,9 +76,16 @@ public static class RunUtil
                 Value = (string)value,
                 Scope = scope,
                 Location = scope.Location
-            } as TValueExpression ;
+            } as TValueExpression;
         }
         throw new ArgumentException($"Error on {nameof(RunUtil)}.{nameof(ConvertToValueExpression)} from {scope.GetType()}");
+    }
+
+    public static TExpression CreateNewScope<TExpression>(this TExpression expression) where TExpression : Expression
+    {
+        expression.Scope = null!;
+        var json = JsonSerializer.Serialize(expression, new JsonSerializerOptions { ReferenceHandler = ReferenceHandler.IgnoreCycles });
+        return JsonSerializer.Deserialize<TExpression>(json, new JsonSerializerOptions { ReferenceHandler = ReferenceHandler.IgnoreCycles });
     }
 
 }

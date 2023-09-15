@@ -40,7 +40,7 @@ public class InterpreterCommandTest : AbstractTest
     }
 
     [Fact]
-    public async Task if_eq_verdadeiro()
+    public async Task If_eq_verdadeiro()
     {
         var command = new InterpreterCommand(FileManager.GetFullPath("if.json"));
 
@@ -50,7 +50,7 @@ public class InterpreterCommandTest : AbstractTest
     }
 
     [Fact]
-    public async Task add_eq_formula_str()
+    public async Task Add_eq_formula_str()
     {
         var command = new InterpreterCommand(FileManager.GetFullPath("add.json"));
 
@@ -68,13 +68,13 @@ public class InterpreterCommandTest : AbstractTest
     }
 
     [Fact]
-    public async Task Combination_eq_44()
+    public async Task Combination_eq_45()
     {
         var command = new InterpreterCommand(FileManager.GetFullPath("combination.json"));
 
         await command.ExecuteAsync();
 
-        Convert.ToInt32(GetLogMessages()).Should().Be(44);
+        Convert.ToInt32(GetLogMessages()).Should().Be(45);
     }
 
     [Fact]

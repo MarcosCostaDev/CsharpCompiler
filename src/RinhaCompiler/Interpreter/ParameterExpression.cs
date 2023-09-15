@@ -14,6 +14,9 @@ public sealed class ParameterExpression : FileLocator, ICommandExecute
     public ValueExpression GetValue(Expression scope)
     {
         if (Value is ValueExpression value) return value;
+        else if (Value is int intValue) return new ValueExpression<int> { Value = intValue, Scope = scope, Location = Location };
+        else if (Value is string strValue) return new ValueExpression<string> { Value = strValue, Scope = scope, Location = Location };
+        else if (Value is bool boolValue) return new ValueExpression<bool> { Value = boolValue, Scope = scope, Location = Location };
         else if (Value is JsonElement jsonValue)
         {
             switch (jsonValue.ValueKind)

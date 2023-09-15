@@ -16,7 +16,17 @@ public sealed class VarExpression : Expression
 
     public Expression SetValue(Expression value)
     {
-        return RunUtil.FindAndCreateOrUpdateScopedVariableValue(this, Text, value);
+        var scopedVariables = this.FindScopedVariables();
+
+        if (scopedVariables.ContainsKey(Text))
+        {
+            return scopedVariables[Text] = value;
+        }
+        else
+        {
+            scopedVariables.Add(Text, value);
+        }
+        return value;
     }
 
 }

@@ -5,22 +5,26 @@
     <TargetFramework>net7.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Description>The slowest AST interpreter you've seen in your life! This project is participant of The first Rinha de compiladores promoted by https://github.com/aripiprazole/rinha-de-compiler</Description>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <RepositoryUrl>https://github.com/MarcosCostaDev/RinhaCompiler</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/MarcosCostaDev/RinhaCompiler</PackageProjectUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>rinha-de-compiladores;rinha-compiler;rinha-de-compilers;rinha</PackageTags>
     <Copyright>Marcos Costa </Copyright>
     <Title>Rinha Compiler (Tree-Walking Interpreter)</Title>
     <PackAsTool>true</PackAsTool>
     <ToolCommandName>rinha</ToolCommandName>
-    <PackageOutputPath>./nupkg</PackageOutputPath>
+    <EnablePackageValidation>true</EnablePackageValidation>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="System.CommandLine" Version="2.0.0-beta4.22272.1" />
     <PackageReference Include="System.Text.Json" Version="7.0.3" />
+    <PackageReference Include="DotNet.ReproducibleBuilds" Version="1.1.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+    </PackageReference>
   </ItemGroup>
 
   <ItemGroup>

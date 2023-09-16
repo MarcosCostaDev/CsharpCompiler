@@ -51,7 +51,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\RinhaCompiler\RinhaCompiler.csproj" />
+    <ProjectReference Include="..\RinhaCompiler\Rinha.csproj" />
   </ItemGroup>
 
   <ItemGroup>

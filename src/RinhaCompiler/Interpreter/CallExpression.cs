@@ -1,4 +1,4 @@
-﻿namespace RinhaCompiler.Interpreter;
+﻿namespace Rinha.Interpreter;
 
 public sealed class CallExpression : Expression
 {

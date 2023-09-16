@@ -1,11 +1,11 @@
-﻿using RinhaCompiler.Interfaces;
+﻿using Rinha.Interfaces;
 
-namespace RinhaCompiler.Commands.Abstracts;
+namespace Rinha.Commands.Abstracts;
 
 internal abstract class AbstractCommand : ICompilerCommand
 {
     public virtual bool CanExecute() => true;
 
-    public abstract Task ExecuteAsync(CancellationToken cancellationToken = default);
+    public abstract void Execute();
 
 }

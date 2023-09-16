@@ -1,7 +1,7 @@
-﻿using RinhaCompiler.Test.Abstracts;
-using RinhaCompiler.Test.Managers;
+﻿using Rinha.Test.Abstracts;
+using Rinha.Test.Managers;
 
-namespace RinhaCompiler.Test.Commands;
+namespace Rinha.Test.Commands;
 [Collection(nameof(CommandsCollection))]
 public class InterpreterCommandTest : AbstractTest
 {
@@ -10,79 +10,79 @@ public class InterpreterCommandTest : AbstractTest
     }
 
     [Fact]
-    public async Task HelloWorldMessage()
+    public void HelloWorldMessage()
     {
         var command = new InterpreterCommand(FileManager.GetFullPath("helloworld.json"));
 
-        await command.ExecuteAsync();
+        command.Execute();
 
         GetLogMessages().Should().Be("Hello, world!");
     }
 
     [Fact]
-    public async Task FibonacciResult_eq_55()
+    public void FibonacciResult_eq_55()
     {
         var command = new InterpreterCommand(FileManager.GetFullPath("fib.json"));
 
-        await command.ExecuteAsync();
+        command.Execute();
 
         Convert.ToInt32(GetLogMessages()).Should().Be(55);
     }
 
     [Fact]
-    public async Task LetSum_eq_3()
+    public void LetSum_eq_3()
     {
         var command = new InterpreterCommand(FileManager.GetFullPath("let.json"));
 
-        await command.ExecuteAsync();
+        command.Execute();
 
         Convert.ToInt32(GetLogMessages()).Should().Be(3);
     }
 
     [Fact]
-    public async Task If_eq_verdadeiro()
+    public void If_eq_verdadeiro()
     {
         var command = new InterpreterCommand(FileManager.GetFullPath("if.json"));
 
-        await command.ExecuteAsync();
+        command.Execute();
 
         GetLogMessages().Should().Be("Verdadeiro");
     }
 
     [Fact]
-    public async Task Add_eq_formula_str()
+    public void Add_eq_formula_str()
     {
         var command = new InterpreterCommand(FileManager.GetFullPath("add.json"));
 
-        await command.ExecuteAsync();
+        command.Execute();
 
         GetLogMessages().Should().Be("1 + 2 = 3");
     }
 
     [Fact]
-    public async Task Function_variable_not_exist_should_throw_exception()
+    public void Function_variable_not_exist_should_throw_exception()
     {
         var command = new InterpreterCommand(FileManager.GetFullPath("function.json"));
 
-        await Assert.ThrowsAsync<ArgumentException>(async () => await command.ExecuteAsync());
+        Assert.Throws<ArgumentException>(() => command.Execute());
     }
 
     [Fact]
-    public async Task Combination_eq_45()
+    public void Combination_eq_45()
     {
         var command = new InterpreterCommand(FileManager.GetFullPath("combination.json"));
 
-        await command.ExecuteAsync();
+        command.Execute();
 
         Convert.ToInt32(GetLogMessages()).Should().Be(45);
     }
 
     [Fact]
-    public async Task Sum_eq_15()
+    public void Sum_eq_15()
     {
         var command = new InterpreterCommand(FileManager.GetFullPath("sum.json"));
 
-        await command.ExecuteAsync();
+        command.Execute();
 
         Convert.ToInt32(GetLogMessages()).Should().Be(15);
     }

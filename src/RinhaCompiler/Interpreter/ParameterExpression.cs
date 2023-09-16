@@ -1,6 +1,6 @@
 ﻿using System.Text.Json;
 
-namespace RinhaCompiler.Interpreter;
+namespace Rinha.Interpreter;
 
 public sealed class ParameterExpression : FileLocator, ICommandExecute
 {

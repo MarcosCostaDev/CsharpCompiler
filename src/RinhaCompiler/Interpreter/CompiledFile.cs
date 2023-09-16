@@ -1,6 +1,6 @@
 ﻿using System.Collections.Concurrent;
 
-namespace RinhaCompiler.Interpreter;
+namespace Rinha.Interpreter;
 
 public class CompiledFile : FileLocator, ICommandExecute
 {

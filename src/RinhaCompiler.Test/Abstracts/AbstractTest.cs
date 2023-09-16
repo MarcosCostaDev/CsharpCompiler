@@ -1,7 +1,7 @@
-﻿using RinhaCompiler.Test.Managers;
+﻿using Rinha.Test.Managers;
 using Xunit.Sdk;
 
-namespace RinhaCompiler.Test.Abstracts;
+namespace Rinha.Test.Abstracts;
 
 public abstract class AbstractTest
 {

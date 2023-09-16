@@ -1,9 +1,10 @@
 # This workflow will build a .NET project
 # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net
 
-name: Build and publish
+name: build
 
 on:
+  workflow_call: 
   push:
     branches: [ "main" ]
   pull_request:
@@ -16,7 +17,7 @@ jobs:
         working-directory: ./src
     env:
         SOLUTION: ./RinhaCompiler.sln
-        TEST_PROJECT: ./RinhaCompiler.Test/RinhaCompiler.Test.csproj
+        TEST_PROJECT: ./RinhaCompiler.Test/Rinha.Test.csproj
     runs-on: ubuntu-latest
 
     steps:

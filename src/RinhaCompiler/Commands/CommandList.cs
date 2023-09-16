@@ -1,6 +1,6 @@
 ﻿using System.CommandLine;
 
-namespace RinhaCompiler.Commands;
+namespace Rinha.Commands;
 
 internal static class CommandList
 {
@@ -11,16 +11,13 @@ internal static class CommandList
             HelpName = "file AST.json"
         };
 
-        var interpreterOption = new Option<string>("-interpreter", "Tree-Walking Interpreter") { IsRequired = false };
-        interpreterOption.AddAlias("-i");
         rootCommand.AddArgument(fileArgument);
-        rootCommand.AddGlobalOption(interpreterOption);
 
-        rootCommand.SetHandler((fileArgumentValue, interpreterOptionValue) =>
+        rootCommand.SetHandler((fileArgumentValue) =>
         {
             Program.GlobalCommandManager.Invoke(new InterpreterCommand(fileArgumentValue.FullName));
 
-        }, fileArgument, interpreterOption);
+        }, fileArgument);
 
         return rootCommand;
     }

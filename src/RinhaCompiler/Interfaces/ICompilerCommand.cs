@@ -1,7 +1,7 @@
-﻿namespace RinhaCompiler.Interfaces;
+﻿namespace Rinha.Interfaces;
 
 internal interface ICompilerCommand
 {
-    Task ExecuteAsync(CancellationToken cancellationToken = default);
+    void Execute();
     bool CanExecute();
 }

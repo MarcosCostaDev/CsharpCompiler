@@ -1,4 +1,4 @@
-﻿namespace RinhaCompiler.Interpreter;
+﻿namespace Rinha.Interpreter;
 
 public abstract class ValueExpression : Expression { }
 public class ValueExpression<T> : ValueExpression

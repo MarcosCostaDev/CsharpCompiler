@@ -1,6 +1,6 @@
-﻿using RinhaCompiler.Interfaces;
+﻿using Rinha.Interfaces;
 
-namespace RinhaCompiler.Commands.Manager;
+namespace Rinha.Commands.Manager;
 
 internal class CommandManager
 {
@@ -11,10 +11,8 @@ internal class CommandManager
         if (command.CanExecute())
         {
             _commands.Push(command);
-            _ = Task.Run(async () =>
-             {
-                 await command.ExecuteAsync();
-             });
+
+            command.Execute();
         }
     }
 }

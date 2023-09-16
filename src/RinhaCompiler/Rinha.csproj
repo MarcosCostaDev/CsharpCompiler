@@ -10,8 +10,12 @@
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <RepositoryUrl>https://github.com/MarcosCostaDev/RinhaCompiler</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
-    <PackageTags>rinha-de-compiladores;rinha-compiler;rinha-de-compilers</PackageTags>
+    <PackageTags>rinha-de-compiladores;rinha-compiler;rinha-de-compilers;rinha</PackageTags>
     <Copyright>Marcos Costa </Copyright>
+    <Title>Rinha Compiler (Tree-Walking Interpreter)</Title>
+    <PackAsTool>true</PackAsTool>
+    <ToolCommandName>rinha</ToolCommandName>
+    <PackageOutputPath>./nupkg</PackageOutputPath>
   </PropertyGroup>
 
   <ItemGroup>
@@ -20,7 +24,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <InternalsVisibleTo Include="RinhaCompiler.Test" />
+    <InternalsVisibleTo Include="Rinha.Test" />
   </ItemGroup>
 
   <ItemGroup>
@@ -28,6 +32,10 @@
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="nupkg\" />
   </ItemGroup>
 
 </Project>

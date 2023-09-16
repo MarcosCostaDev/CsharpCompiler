@@ -1,5 +1,5 @@
-﻿using RinhaCompiler.Commands;
-using RinhaCompiler.Commands.Manager;
+﻿using Rinha.Commands;
+using Rinha.Commands.Manager;
 using System.CommandLine;
 
 var description = @"
@@ -20,5 +20,6 @@ rootCommand.Invoke(args);
 internal partial class Program
 {
     internal static CommandManager GlobalCommandManager = new();
+    internal static void Main(params string[] args) { }
 }
 

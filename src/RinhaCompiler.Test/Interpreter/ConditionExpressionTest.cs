@@ -1,6 +1,6 @@
-﻿using RinhaCompiler.Interpreter;
+﻿using Rinha.Interpreter;
 
-namespace RinhaCompiler.Test.Interpreter;
+namespace Rinha.Test.Interpreter;
 
 public class ConditionExpressionTest
 {

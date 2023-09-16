@@ -1,6 +1,6 @@
 ﻿using System.Reflection;
 
-namespace RinhaCompiler.Test.Managers;
+namespace Rinha.Test.Managers;
 
 internal class FileManager
 {

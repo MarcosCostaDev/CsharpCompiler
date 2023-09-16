@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace RinhaCompiler.Interpreter;
+namespace Rinha.Interpreter;
 
 [JsonConverter(typeof(JsonStringEnumConverter))]
 public enum Term

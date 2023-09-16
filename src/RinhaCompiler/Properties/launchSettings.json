@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "Rinha": {
+      "commandName": "Project",
+      "commandLineArgs": "files/combination.json",
+      "workingDirectory": "../../"
+    }
+  }
+}

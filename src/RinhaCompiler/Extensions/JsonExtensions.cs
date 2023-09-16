@@ -1,5 +1,5 @@
 ﻿using System.Text.Json;
-namespace RinhaCompiler.Extensions;
+namespace Rinha.Extensions;
 
 internal static class JsonExtensions
 {

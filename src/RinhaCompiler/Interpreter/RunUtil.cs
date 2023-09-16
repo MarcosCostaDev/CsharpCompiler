@@ -1,7 +1,7 @@
 ﻿using System.Text.Json;
 using System.Text.Json.Serialization;
 
-namespace RinhaCompiler.Interpreter;
+namespace Rinha.Interpreter;
 
 public static class RunUtil
 {

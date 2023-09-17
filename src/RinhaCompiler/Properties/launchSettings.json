@@ -1,8 +1,16 @@
 {
   "profiles": {
-    "Rinha": {
+    "Start": {
+      "commandName": "Project"
+    },
+    "DefaultFile": {
       "commandName": "Project",
       "commandLineArgs": "files/combination.json",
+      "workingDirectory": "../../"
+    },
+    "InterpreterCombination": {
+      "commandName": "Project",
+      "commandLineArgs": "i files/combination.json",
       "workingDirectory": "../../"
     }
   }

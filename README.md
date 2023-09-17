@@ -2,6 +2,11 @@
 
 Tree-Walking Interpreter implemented in CSharp using Doubly Linked List (why not?!)
 
+
+![Nuget](https://img.shields.io/nuget/v/rinha)
+
+
+
 ## How to use
 
 You don't need to download the source code to run this Interpreter, you can install it in your machine using the dotnet tool.

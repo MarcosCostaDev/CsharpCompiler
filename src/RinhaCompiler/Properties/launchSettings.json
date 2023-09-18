@@ -4,6 +4,9 @@
       "commandName": "Project",
       "commandLineArgs": "files/combination.json",
       "workingDirectory": "../../"
+    },
+    "Docker": {
+      "commandName": "Docker"
     }
   }
 }

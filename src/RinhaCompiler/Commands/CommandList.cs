@@ -13,7 +13,7 @@ internal static class CommandList
         return rootCommand;
     }
 
-    private static Argument<FileInfo> DefaultCommand(RootCommand rootCommand)
+    private static void DefaultCommand(RootCommand rootCommand)
     {
         var fileArgument = new Argument<FileInfo>("file", "a file to be processed")
         {
@@ -27,7 +27,6 @@ internal static class CommandList
             Program.GlobalCommandManager.Invoke(new InterpreterCommand(fileArgumentValue.FullName));
 
         }, fileArgument);
-        return fileArgument;
     }
 
     private static void Interpreter(RootCommand rootCommand)

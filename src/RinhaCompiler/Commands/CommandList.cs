@@ -36,6 +36,7 @@ internal static class CommandList
             HelpName = "file AST.json"
         };
 
+
         var command = new Command("interpreter");
         command.AddAlias("i");
         command.AddArgument(fileArgument);
@@ -56,6 +57,7 @@ internal static class CommandList
             HelpName = "file .rinha"
         };
 
+
         var command = new Command("parser");
         command.AddAlias("p");
         command.AddArgument(fileArgument);
@@ -63,11 +65,13 @@ internal static class CommandList
         var outputDirOption = new Option<DirectoryInfo?>("output-dir", "output directory");
         outputDirOption.AddAlias("o");
 
-        command.SetHandler((fileArgumentValue, outputDirOptionValue) =>
-        {
-            Program.GlobalCommandManager.Invoke(new ParserCommand(fileArgumentValue.FullName, outputDirOptionValue));
 
-        }, fileArgument, outputDirOption);
+
+        command.SetHandler((fileArgumentValue) =>
+        {
+            Program.GlobalCommandManager.Invoke(new InterpreterCommand(fileArgumentValue.FullName));
+
+        }, fileArgument);
 
         rootCommand.AddCommand(command);
     }

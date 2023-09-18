@@ -6,6 +6,32 @@ Tree-Walking Interpreter implemented in CSharp using Doubly Linked List (why not
 ![Nuget](https://img.shields.io/nuget/v/rinha)
 
 
+## Build and Run
+
+- build
+```bash
+docker build -t rinha .
+```
+
+- fib
+```bash
+docker run -it rinha files/fib.json
+```
+
+- sum
+```bash
+docker run -it rinha files/sum.json
+```
+
+- combination
+```bash
+docker run -it rinha files/combination.json
+```
+
+- helloworld
+```bash
+docker run -it rinha files/helloworld.json
+```
 
 ## How to use
 
